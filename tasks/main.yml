@@ -1,0 +1,58 @@
+---
+# Variable configuration.
+- include_tasks: variables.yml
+  tags:
+    - always
+
+
+# Setup/install tasks.
+- include_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+  tags:
+    - package_mysql
+
+
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+  tags:
+    - package_mysql
+
+
+- include_tasks: setup-Archlinux.yml
+  when: ansible_os_family == 'Archlinux'
+  tags:
+    - package_mysql
+
+- name: Check if MySQL packages were installed.
+  set_fact:
+    mysql_install_packages: "{{ (rh_mysql_install_packages is defined and rh_mysql_install_packages.changed)
+      or (deb_mysql_install_packages is defined and deb_mysql_install_packages.changed)
+      or (arch_mysql_install_packages is defined and arch_mysql_install_packages.changed) }}"
+  tags:
+    - package_mysql
+
+
+# Configure MySQL.
+- include_tasks: configure.yml
+  tags:
+    - config_mysql
+
+
+- include_tasks: secure-installation.yml
+  tags:
+    - config_mysql
+
+
+- include_tasks: databases.yml
+  tags:
+    - config_mysql
+
+
+- include_tasks: users.yml
+  tags:
+    - config_mysql
+
+
+- include_tasks: replication.yml
+  tags:
+    - config_mysql
