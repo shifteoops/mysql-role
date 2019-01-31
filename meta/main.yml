@@ -1,0 +1,16 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: shifteo-ops
+  description: Mysql for Ubuntu.
+  company: "Shifteo"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+  galaxy_tags:
+    - mysql
+    - db
+    - mariadb
