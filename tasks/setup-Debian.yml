@@ -3,6 +3,18 @@
   stat: path=/etc/init.d/mysql
   register: mysql_installed
 
+
+- name: Install mariadb keys
+  apt_key:
+    keyserver: "{{ mariadb_apt_keyserver }}"
+    id: "{{ mariadb_apt_keyid }}"
+    state: present
+
+- name:  Add the apt repository
+  apt_repository:
+    repo: deb [arch=amd64] http://mirror.zol.co.zw/mariadb/repo/10.3/ubuntu bionic main
+    state: present
+
 - name: Update apt cache if MySQL is not yet installed.
   apt: update_cache=yes
   when: mysql_installed.stat.exists == false
