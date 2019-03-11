@@ -12,7 +12,7 @@
 
 - name:  Add the apt repository
   apt_repository:
-    repo: deb [arch=amd64] http://mirror.zol.co.zw/mariadb/repo/10.3/ubuntu bionic main
+    repo:   deb [arch=amd64] http://mariadb.biz.net.id/repo/10.2/ubuntu bionic main
     state: present
 
 - name: Update apt cache if MySQL is not yet installed.

@@ -1,8 +1,6 @@
 ---
 # Variable configuration.
 - include_tasks: variables.yml
-  tags:
-    - always
 
 
 # Setup/install tasks.
