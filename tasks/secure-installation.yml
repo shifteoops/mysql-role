@@ -61,7 +61,7 @@
 
 
 - name: Allow root access
-  command: mysql -NBe "{{ item }}"
+  command: mysql -NBe -p"{{ mysql_root_password }}" "{{ item }}" 
   changed_when: false
   with_items:
     - "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '{{ mysql_root_password }}';"
