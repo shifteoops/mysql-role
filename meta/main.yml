@@ -2,28 +2,13 @@
 dependencies: []
 
 galaxy_info:
-  author: geerlingguy
-  description: MySQL server for RHEL/CentOS and Debian/Ubuntu.
-  company: "Midwestern Mac, LLC"
-  license: "license (BSD, MIT)"
+  author: shifteo-ops
+  description: Composer for Ubuntu.
+  company: "Shifteo"
   min_ansible_version: 2.4
   platforms:
-    - name: EL
-      versions:
-        - 6
-        - 7
     - name: Ubuntu
       versions:
-        - all
-    - name: Debian
-      versions:
-        - all
-    - name: Archlinux
-      versions:
-        - all
+        - bionic
   galaxy_tags:
     - database
-    - mysql
-    - mariadb
-    - db
-    - sql
