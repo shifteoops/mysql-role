@@ -3,6 +3,7 @@
 # or sudo access
 mariadb_apt_keyserver: hkp://keyserver.ubuntu.com:80
 mariadb_apt_keyid: '0xF1656F24C74CD1D8'
+mariadb_version: 10.2
 
 mysql_user_home: /root
 mysql_user_name: root
